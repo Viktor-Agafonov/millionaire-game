@@ -137,15 +137,15 @@ body{
 }
 
 .wrapper .topMenu .topMenuCenter .helpMenu #helpButtonAudience {
-    background: url("Audience.png") center center/100% 100% repeat-x;
+    background: url("icon/Audience.png") center center/100% 100% repeat-x;
 }
 
 .wrapper .topMenu .topMenuCenter .helpMenu #helpButtonFifty{
-    background: url("fifty.png") center center/100% 100% repeat-x;
+    background: url("icon/fifty.png") center center/100% 100% repeat-x;
 }
 
 .wrapper .topMenu .topMenuCenter .helpMenu #helpButtonPhone{
-    background: url("Phone.png") center center/100% 100% repeat-x;
+    background: url("icon/Phone.png") center center/100% 100% repeat-x;
 }
 
 .wrapper .topMenu .topMenuCenter .menu{
@@ -392,7 +392,7 @@ body{
 
 .HelpAudienceBlock {
     background: darkblue;
-    box-shadow: inset -110px 0px 72px #1d1a3b;
+    box-shadow: inset -110px 0 72px #1d1a3b;
     border-radius: 2%;
     width: 84%;
     height: 70%;
