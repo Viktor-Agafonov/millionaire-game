@@ -114,6 +114,40 @@ body{
     justify-content: space-around;
 }
 
+.wrapper .topMenu .topMenuCenter .helpMenu {
+    width: 170px;
+    height: 45px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    background-color: blue;
+    box-shadow: inset -13px 23px 34px #486aff;
+    border: 3px solid wheat;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    font-variant: all-small-caps;
+    justify-content: space-around;
+}
+
+.wrapper .topMenu .topMenuCenter .helpMenu .helpMenuButton {
+   background: #1d1a3b;
+    width: 30%;
+    height: 76%;
+}
+
+.wrapper .topMenu .topMenuCenter .helpMenu #helpButtonAudience {
+    background: url("Audience.png") center center/100% 100% repeat-x;
+}
+
+.wrapper .topMenu .topMenuCenter .helpMenu #helpButtonFifty{
+    background: url("fifty.png") center center/100% 100% repeat-x;
+}
+
+.wrapper .topMenu .topMenuCenter .helpMenu #helpButtonPhone{
+    background: url("Phone.png") center center/100% 100% repeat-x;
+}
+
 .wrapper .topMenu .topMenuCenter .menu{
     width: 170px;
     height: 45px;
@@ -152,7 +186,7 @@ body{
     flex-direction: column;
     align-items: center;
     color: white;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
 }
 
@@ -354,4 +388,95 @@ body{
         background-color: blue;
         box-shadow: inset -13px 23px 34px #486aff;
     }
+}
+
+.HelpAudienceBlock {
+    background: darkblue;
+    box-shadow: inset -110px 0px 72px #1d1a3b;
+    border-radius: 2%;
+    width: 84%;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: space-around;
+}
+
+.HelpAudienceBlock .HelpAudienceDivs{
+    width: 22%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.HelpAudienceBlock .HelpAudienceDivs .HelpAudienceDivLine {
+    width: 100%;
+    background: #ff9800;
+}
+
+.HelpAudienceBlock .HelpAudienceDivs .HelpAudienceDivAnswer{
+    width: 100%;
+    display: flex;
+    height: 20%;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+}
+.HelpAudienceBlock .HelpAudienceDivs .HelpAudienceInterest {
+    display: flex;
+    width: 100%;
+    height: 20%;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.callFriends{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    justify-content: center;
+    align-items: center;
+    animation-direction: alternate;
+    animation-duration: 5s;
+    animation-name: moveCallFriends;
+    animation-play-state: running;
+    animation-timing-function: linear;
+    width: 0;
+    opacity: 0
+}
+@keyframes moveCallFriends {
+    0% { opacity: 0; width: 40%;}
+    25% { opacity: 1; margin-left: -24%; margin-top: -14%; width: 40%;}
+    90% { opacity: 1; margin-left: -24%; margin-top: -14%; width: 40%;}
+    100% { opacity: 0; margin-left: 0; width: 40%;}
+}
+
+.callFriends img {
+    width: 100%;
+    height: 100%;
+}
+
+.callFriends #callFriendsText{
+    top: 118px;
+    left: 12%;
+    width: 129px;
+    height: 60px;
+    position: relative;
+    border-radius: 29%;
+    transform: rotate(-30deg);
+    font-size: 16px;
+    color: black;
+}
+
+.callFriends #callFriendsText p {
+    display: flex;
+
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }

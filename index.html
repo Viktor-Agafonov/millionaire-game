@@ -13,6 +13,11 @@
             <div class="menu" id="startButton">Start Game</div>
             <div class="menu" id="continueButton">Next Question <br /> New Game</div>
             <div class="menu" id="takeMoneyButton">Take Money</div>
+            <div class="helpMenu">
+                <div class="helpMenuButton" id="helpButtonFifty"></div>
+                <div class="helpMenuButton" id="helpButtonPhone"></div>
+                <div class="helpMenuButton" id="helpButtonAudience"></div>
+            </div>
         </div>
         <div class="prizeMenu">
             <div class="prizeTable">
@@ -143,6 +148,42 @@
 <div class="gameWinMoneyStyle"></div>
 </template>
 
+<template id="templateHelpButtonAudience">
+    <div  class="HelpAudienceBlock">
+    <div class="HelpAudienceDivs">
+        <div class="HelpAudienceInterest" id="interestA"></div>
+        <div class="HelpAudienceDivLine"></div>
+        <div class="HelpAudienceDivAnswer">a</div>
+    </div>
+    <div class="HelpAudienceDivs">
+        <div class="HelpAudienceInterest" id="interestB"></div>
+        <div class="HelpAudienceDivLine"></div>
+        <div class="HelpAudienceDivAnswer">b</div>
+    </div>
+    <div class="HelpAudienceDivs">
+        <div class="HelpAudienceInterest" id="interestC"></div>
+        <div class="HelpAudienceDivLine"></div>
+        <div class="HelpAudienceDivAnswer">c</div>
+    </div>
+    <div class="HelpAudienceDivs">
+        <div class="HelpAudienceInterest" id="interestD"></div>
+        <div class="HelpAudienceDivLine"></div>
+        <div class="HelpAudienceDivAnswer">d</div>
+    </div>
+    </div>
+</template>
+
+<template id="templateCallFriends">
+<div class="callFriends">
+    <div id="callFriendsText">
+        <p>Я вважаю що це:</p>
+        <p id="callFriendsCorrectAnswer"></p>
+    </div>
+    <img src="Ostap.png" alt="callFriends">
+</div>
+</template>
+
+<script src="mustache.min.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

@@ -35,9 +35,11 @@ let questionsDiv = document.querySelector(".questions");
 let textDiv = document.querySelector(".infoMenu");
 let templateWin = document.querySelector('#templateWin');
 let templateLose = document.querySelector('#templateLose');
+let templateHelpButtonAudience = document.querySelector('#templateHelpButtonAudience');
 let answersDiv = document.querySelector('.answers');
 let templateInfoMenu = document.querySelector('#templateInfoMenu');
 let takeMoney = document.querySelector('#takeMoney');
+let templateCallFriends = document.querySelector('#templateCallFriends');
 
 let prizeWin = 0;
 let correctAnswer = '';
@@ -45,6 +47,7 @@ let questionText = '';
 let amountFireproof = 0;
 let action;
 let clickAction;
+let actionDataset;
 let countIndex = 1;
 let indexTemplateInfoMenu = 1;
 let stopFn = false;
@@ -60,6 +63,8 @@ function startGame() {
     showQuestionsAnswersBlock(0);
     answersDiv.addEventListener('click', clickAnswers);
     showTemplateInfoMenu();
+    document.querySelector('#helpButtonAudience').addEventListener('click', showHelpButtonAudience);
+    document.querySelector('#helpButtonPhone').addEventListener('click', showCallFriends);
 }
 
 function showQuestionsAnswersBlock (index){
@@ -83,6 +88,7 @@ function showQuestionsAnswersBlock (index){
 function clickAnswers(e) {
     if (!stopFn) {
         action = e.target.textContent;
+        actionDataset = e.target.dataset.action
         clickAction = e.target;
         if (action === correctAnswer) {
             clickAction.classList.remove('answer');
@@ -123,9 +129,11 @@ function continueGame (){
         let loseNewGame = confirm(`Желаете начать игру заново?`);
         if (loseNewGame){
             textDiv.innerHTML = '';
+            countIndex = 1;
             startGame();
         } else {
             textDiv.innerHTML = '';
+            countIndex = 1;
             alert(`Возвращайтесь! Bye!`);
             showGameOver();
         }
@@ -153,12 +161,14 @@ function showTemplateWin() {
     templateWinClone.querySelector('#prizeWin').textContent = prizeWin;
     templateWinClone.querySelector('#amountFireproof').textContent = amountFireproof;
     textDiv.appendChild(templateWinClone);
+    document.querySelector('.HelpAudienceBlock').remove();
 }
 
 function showTemplateLose() {
     let templateLoseClone = templateLose.content.cloneNode(true);
     templateLoseClone.querySelector('#prizeLose').textContent = amountFireproof;
     textDiv.appendChild(templateLoseClone);
+    document.querySelector('.HelpAudienceBlock').remove();
 }
 
 function showTakeMoney() {
@@ -179,6 +189,72 @@ function showGameOver() {
     textDiv.appendChild(gameOverClone);
 }
 
+function showTemplateHelpButtonAudience() {
+    let templateHelpButtonAudienceClone = templateHelpButtonAudience.content.cloneNode(true);
+    textDiv.appendChild(templateHelpButtonAudienceClone);
+}
+
+function showTemplateCallFriends() {
+    let templateCallFriendsClone = templateCallFriends.content.cloneNode(true);
+    templateCallFriendsClone.querySelector('#callFriendsCorrectAnswer').textContent = correctAnswer;
+    textDiv.appendChild(templateCallFriendsClone);
+}
+
 let trGallery = document.querySelectorAll('#table tr');
 let trArrayRevers = Array.from(trGallery);
 let trArray = trArrayRevers.reverse();
+
+function showHelpButtonAudience (){
+    showTemplateHelpButtonAudience()
+    let arrayForAudience = [];
+    givRandomArrayForAudience(arrayForAudience);
+    let arrayBlock = document.querySelectorAll('.HelpAudienceInterest');
+    let arrayLine = document.querySelectorAll('.HelpAudienceDivLine')
+    let answerButtonArray = document.querySelectorAll('.answer');
+    let index2 = 0;
+    for (let index = 0; index < answerButtonArray.length; index++) {
+        const answerValue = answerButtonArray[index].textContent;
+        index2++;
+        if (answerValue === correctAnswer) {
+            arrayBlock[index].textContent = arrayForAudience[0] + "%";
+            arrayLine[index].style.height = arrayForAudience[0] + "%";
+            index2 = index2 - 1;
+        } else {
+            arrayBlock[index].textContent = arrayForAudience[index2] + "%";
+            arrayLine[index].style.height = arrayForAudience[index2] + "%";
+        }
+    }
+    this.removeEventListener('click', showHelpButtonAudience);
+}
+
+function givRandomArrayForAudience(value) {
+    let randomFirst = randomInteger(50, 70);
+    let randomSecond = randomInteger(10, 30);
+    let randomThird = randomInteger(5, 20);
+    randomIntegerLastIndex();
+
+    function randomIntegerLastIndex() {
+        let lastElem = 100 - randomFirst - randomSecond - randomThird;
+        if (lastElem <= 0) {
+            givRandomArrayForAudience(value);
+        } else {
+            value.push(randomFirst);
+            value.push(randomSecond);
+            value.push(randomThird);
+            value.push(lastElem);
+        }
+    }
+
+    function randomInteger(min, max) {
+        let rand = min + Math.random() * (max + 1 - min);
+        return Math.floor(rand);
+    }
+}
+
+function showCallFriends() {
+    showTemplateCallFriends();
+    this.removeEventListener('click', showCallFriends);
+}
+
+
+
