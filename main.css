@@ -131,21 +131,32 @@ body{
 }
 
 .wrapper .topMenu .topMenuCenter .helpMenu .helpMenuButton {
-   background: #1d1a3b;
     width: 30%;
     height: 76%;
 }
 
-.wrapper .topMenu .topMenuCenter .helpMenu #helpButtonAudience {
+.wrapper .topMenu .topMenuCenter .helpMenu .iconAudience {
     background: url("icon/Audience.png") center center/100% 100% repeat-x;
 }
 
-.wrapper .topMenu .topMenuCenter .helpMenu #helpButtonFifty{
+.helpButtonAudienceFinish {
     background: url("icon/fifty.png") center center/100% 100% repeat-x;
 }
 
-.wrapper .topMenu .topMenuCenter .helpMenu #helpButtonPhone{
+.wrapper .topMenu .topMenuCenter .helpMenu .iconFifty{
+    background: url("icon/fifty.png") center center/100% 100% repeat-x;
+}
+
+.helpButtonFiftyFinish {
     background: url("icon/Phone.png") center center/100% 100% repeat-x;
+}
+
+.wrapper .topMenu .topMenuCenter .helpMenu .iconPhone{
+    background: url("icon/Phone.png") center center/100% 100% repeat-x;
+}
+
+.helpButtonPhoneFinish {
+    background: url("icon/fifty.png") center center/100% 100% repeat-x;
 }
 
 .wrapper .topMenu .topMenuCenter .menu{
@@ -437,7 +448,7 @@ body{
 
 .callFriends{
     position: absolute;
-    top: 40%;
+    top: 25%;
     left: 50%;
     justify-content: center;
     align-items: center;
@@ -447,13 +458,14 @@ body{
     animation-play-state: running;
     animation-timing-function: linear;
     width: 0;
+    height: 43%;
     opacity: 0
 }
 @keyframes moveCallFriends {
-    0% { opacity: 0; width: 40%;}
-    25% { opacity: 1; margin-left: -24%; margin-top: -14%; width: 40%;}
-    90% { opacity: 1; margin-left: -24%; margin-top: -14%; width: 40%;}
-    100% { opacity: 0; margin-left: 0; width: 40%;}
+    0% { opacity: 0; width: 35%; height: 43%;}
+    20% { opacity: 1; margin-left: -20%; margin-top: -14%; width: 35%; height: 43%;}
+    95% { opacity: 1; margin-left: -20%; margin-top: -14%; width: 35%; height: 43%;}
+    100% { opacity: 0; margin-left: 0; width: 35%; height: 43%;}
 }
 
 .callFriends img {
@@ -462,14 +474,14 @@ body{
 }
 
 .callFriends #callFriendsText{
-    top: 118px;
-    left: 12%;
-    width: 129px;
-    height: 60px;
+    top: 76%;
+    left: 6%;
+    width: 50%;
+    height: 55%;
     position: relative;
     border-radius: 29%;
-    transform: rotate(-30deg);
-    font-size: 16px;
+    transform: rotate(-25deg);
+    font-size: 18px;
     color: black;
 }
 
@@ -479,4 +491,7 @@ body{
     align-content: center;
     justify-content: center;
     align-items: center;
+}
+.clickHelpFiftyStyle{
+    display: none;
 }

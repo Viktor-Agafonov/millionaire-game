@@ -37,9 +37,16 @@ let templateWin = document.querySelector('#templateWin');
 let templateLose = document.querySelector('#templateLose');
 let templateHelpButtonAudience = document.querySelector('#templateHelpButtonAudience');
 let answersDiv = document.querySelector('.answers');
+
+// let deleteClickZone = document.querySelector('#deleteClickZone');
+
 let templateInfoMenu = document.querySelector('#templateInfoMenu');
 let takeMoney = document.querySelector('#takeMoney');
 let templateCallFriends = document.querySelector('#templateCallFriends');
+let helpButtonAudienceBackground = document.querySelector('#helpButtonAudience');
+let helpButtonPhoneBackground = document.querySelector('#helpButtonPhone');
+let helpButtonFiftyBackground = document.querySelector('#helpButtonFifty');
+let trGallery = document.querySelectorAll('#table tr');
 
 let prizeWin = 0;
 let correctAnswer = '';
@@ -52,6 +59,8 @@ let countIndex = 1;
 let indexTemplateInfoMenu = 1;
 let stopFn = false;
 let trValue;
+let trArrayRevers = Array.from(trGallery);
+let trArray = trArrayRevers.reverse();
 
 document.querySelector('#startButton').addEventListener('click', startGame);
 document.querySelector('#continueButton').addEventListener('click', continueGame);
@@ -61,10 +70,17 @@ function startGame() {
     this.removeEventListener('click', startGame);
     action = '';
     showQuestionsAnswersBlock(0);
-    answersDiv.addEventListener('click', clickAnswers);
+    answersDiv.addEventListener('click', clickAnswers,);
     showTemplateInfoMenu();
+    helpButtonAudienceBackground.classList.remove('helpButtonAudienceFinish');
+    helpButtonAudienceBackground.classList.add('iconAudience');
+    helpButtonPhoneBackground.classList.remove('helpButtonPhoneFinish');
+    helpButtonPhoneBackground.classList.add('iconPhone');
+    helpButtonFiftyBackground.classList.remove('helpButtonFiftyFinish');
+    helpButtonFiftyBackground.classList.add('iconFifty');
     document.querySelector('#helpButtonAudience').addEventListener('click', showHelpButtonAudience);
     document.querySelector('#helpButtonPhone').addEventListener('click', showCallFriends);
+    document.querySelector('#helpButtonFifty').addEventListener('click', showHelpFiftyButton);
 }
 
 function showQuestionsAnswersBlock (index){
@@ -87,15 +103,21 @@ function showQuestionsAnswersBlock (index){
 
 function clickAnswers(e) {
     if (!stopFn) {
+        if (e.target === this){
+        this.stopPropagation();
+        }
+        stopFn = true;
         action = e.target.textContent;
         actionDataset = e.target.dataset.action
         clickAction = e.target;
+        // if (clickAction === this){
+        //     this.stopPropagation();
+        // }
         if (action === correctAnswer) {
             clickAction.classList.remove('answer');
             clickAction.classList.add('clickAnswerStyleWin');
             trValue.classList.add('trWinColor')
             showTemplateWin();
-            stopFn = true;
         }
         if (action === questionsArray[14].correctAnswer){
             showGameWinMoney();
@@ -105,7 +127,6 @@ function clickAnswers(e) {
             clickAction.classList.add('clickAnswerStyleLose');
             trValue.classList.add('trLoseColor');
             showTemplateLose();
-            stopFn = true;
         }
     }
 }
@@ -118,6 +139,8 @@ function continueGame (){
     clickAction.classList.remove('clickAnswerStyleLose');
     trValue.classList.remove('trNormalColor');
     clickAction.classList.add('answer');
+    removeStyleFiftyArray();
+    document.querySelector('#helpButtonAudience').addEventListener('click', showHelpButtonAudience);
     textDiv.innerHTML = '';
     questionText = questionsArray[indexTemplateInfoMenu].text;
     indexTemplateInfoMenu++;
@@ -147,6 +170,7 @@ function takeMoneyGame() {
         correctAnswer = false;
         indexTemplateInfoMenu = 1;
         countIndex = 1;
+        removeStyleFiftyArray();
     }
 }
 
@@ -200,10 +224,6 @@ function showTemplateCallFriends() {
     textDiv.appendChild(templateCallFriendsClone);
 }
 
-let trGallery = document.querySelectorAll('#table tr');
-let trArrayRevers = Array.from(trGallery);
-let trArray = trArrayRevers.reverse();
-
 function showHelpButtonAudience (){
     showTemplateHelpButtonAudience()
     let arrayForAudience = [];
@@ -224,7 +244,11 @@ function showHelpButtonAudience (){
             arrayLine[index].style.height = arrayForAudience[index2] + "%";
         }
     }
+
+    helpButtonAudienceBackground.classList.remove('iconAudience');
+    helpButtonAudienceBackground.classList.add('helpButtonAudienceFinish');
     this.removeEventListener('click', showHelpButtonAudience);
+
 }
 
 function givRandomArrayForAudience(value) {
@@ -252,9 +276,52 @@ function givRandomArrayForAudience(value) {
 }
 
 function showCallFriends() {
+    helpButtonPhoneBackground.classList.remove('iconPhone');
+    helpButtonPhoneBackground.classList.add('helpButtonPhoneFinish');
     showTemplateCallFriends();
     this.removeEventListener('click', showCallFriends);
 }
 
+function showHelpFiftyButton(){
+    helpButtonFiftyBackground.classList.remove('iconFifty');
+    helpButtonFiftyBackground.classList.add('helpButtonFiftyFinish');
+    this.removeEventListener('click', showHelpFiftyButton);
+    document.querySelector('#helpButtonAudience').removeEventListener('click', showHelpButtonAudience);
+    let answerButtonArray = document.querySelectorAll('.answer');
+    let arrayHelpFifty = [];
+    let arrayHelpFiftyStyle = [];
+    givFiftyArray(answerButtonArray);
+    showStyleFiftyArray();
 
+    function givFiftyArray(array) {
+        for (let i = 0; i < 2; i++) {
+            let r = Math.floor(Math.random() * array.length);
+            let value = array[r].textContent;
+            let valueStyle = array[r];
+            if (value === correctAnswer) {
+                i--;
+            } else if (value === arrayHelpFifty[0]) {
+                i--;
+            } else {
+                arrayHelpFifty.push(value);
+                arrayHelpFiftyStyle.push(valueStyle);
+            }
+        }
+    }
+
+    function showStyleFiftyArray() {
+        arrayHelpFiftyStyle.forEach(value => {
+            value.classList.remove('answer');
+            value.classList.add('clickHelpFiftyStyle');
+        });
+    }
+}
+
+function removeStyleFiftyArray() {
+    let allAnswers = document.querySelectorAll('.answers div');
+    allAnswers.forEach(value => {
+        value.classList.remove('clickHelpFiftyStyle');
+        value.classList.add('answer');
+    });
+}
 
