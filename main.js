@@ -37,9 +37,6 @@ let templateWin = document.querySelector('#templateWin');
 let templateLose = document.querySelector('#templateLose');
 let templateHelpButtonAudience = document.querySelector('#templateHelpButtonAudience');
 let answersDiv = document.querySelector('.answers');
-
-// let deleteClickZone = document.querySelector('#deleteClickZone');
-
 let templateInfoMenu = document.querySelector('#templateInfoMenu');
 let takeMoney = document.querySelector('#takeMoney');
 let templateCallFriends = document.querySelector('#templateCallFriends');
@@ -61,6 +58,7 @@ let stopFn = false;
 let trValue;
 let trArrayRevers = Array.from(trGallery);
 let trArray = trArrayRevers.reverse();
+let arrayFromAnswer;
 
 document.querySelector('#startButton').addEventListener('click', startGame);
 document.querySelector('#continueButton').addEventListener('click', continueGame);
@@ -78,9 +76,9 @@ function startGame() {
     helpButtonPhoneBackground.classList.add('iconPhone');
     helpButtonFiftyBackground.classList.remove('helpButtonFiftyFinish');
     helpButtonFiftyBackground.classList.add('iconFifty');
-    document.querySelector('#helpButtonAudience').addEventListener('click', showHelpButtonAudience);
     document.querySelector('#helpButtonPhone').addEventListener('click', showCallFriends);
     document.querySelector('#helpButtonFifty').addEventListener('click', showHelpFiftyButton);
+    document.querySelector('#helpButtonAudience').addEventListener('click', showHelpButtonAudience);
 }
 
 function showQuestionsAnswersBlock (index){
@@ -91,7 +89,7 @@ function showQuestionsAnswersBlock (index){
     prizeWin = questionsArray[index].prize;
     questionText = questionsArray[index].text;
     amountFireproof = questionsArray[index].amountFireproof;
-
+    arrayFromAnswer = document.querySelectorAll('.answer')
 
     questionsDiv.textContent = questionsValue.questions;
     document.querySelector('.firstAnswer').textContent = questionsValue.answers.answerA;
@@ -110,16 +108,13 @@ function clickAnswers(e) {
         action = e.target.textContent;
         actionDataset = e.target.dataset.action
         clickAction = e.target;
-        // if (clickAction === this){
-        //     this.stopPropagation();
-        // }
         if (action === correctAnswer) {
             clickAction.classList.remove('answer');
             clickAction.classList.add('clickAnswerStyleWin');
             trValue.classList.add('trWinColor')
             showTemplateWin();
         }
-        if (action === questionsArray[14].correctAnswer){
+        else if (action === questionsArray[14].correctAnswer){
             showGameWinMoney();
         }
         else if (action !== correctAnswer) {
@@ -140,9 +135,8 @@ function continueGame (){
     trValue.classList.remove('trNormalColor');
     clickAction.classList.add('answer');
     removeStyleFiftyArray();
-    document.querySelector('#helpButtonAudience').addEventListener('click', showHelpButtonAudience);
     textDiv.innerHTML = '';
-    questionText = questionsArray[indexTemplateInfoMenu].text;
+    // questionText = questionsArray[indexTemplateInfoMenu].text;
     indexTemplateInfoMenu++;
     showTemplateInfoMenu();
     if (action === correctAnswer){
@@ -229,11 +223,10 @@ function showHelpButtonAudience (){
     let arrayForAudience = [];
     givRandomArrayForAudience(arrayForAudience);
     let arrayBlock = document.querySelectorAll('.HelpAudienceInterest');
-    let arrayLine = document.querySelectorAll('.HelpAudienceDivLine')
-    let answerButtonArray = document.querySelectorAll('.answer');
+    let arrayLine = document.querySelectorAll('.HelpAudienceDivLine');
     let index2 = 0;
-    for (let index = 0; index < answerButtonArray.length; index++) {
-        const answerValue = answerButtonArray[index].textContent;
+    for (let index = 0; index < arrayFromAnswer.length; index++) {
+        const answerValue = arrayFromAnswer[index].textContent;
         index2++;
         if (answerValue === correctAnswer) {
             arrayBlock[index].textContent = arrayForAudience[0] + "%";
@@ -286,11 +279,9 @@ function showHelpFiftyButton(){
     helpButtonFiftyBackground.classList.remove('iconFifty');
     helpButtonFiftyBackground.classList.add('helpButtonFiftyFinish');
     this.removeEventListener('click', showHelpFiftyButton);
-    document.querySelector('#helpButtonAudience').removeEventListener('click', showHelpButtonAudience);
-    let answerButtonArray = document.querySelectorAll('.answer');
     let arrayHelpFifty = [];
     let arrayHelpFiftyStyle = [];
-    givFiftyArray(answerButtonArray);
+    givFiftyArray(arrayFromAnswer);
     showStyleFiftyArray();
 
     function givFiftyArray(array) {
@@ -318,8 +309,7 @@ function showHelpFiftyButton(){
 }
 
 function removeStyleFiftyArray() {
-    let allAnswers = document.querySelectorAll('.answers div');
-    allAnswers.forEach(value => {
+    arrayFromAnswer.forEach(value => {
         value.classList.remove('clickHelpFiftyStyle');
         value.classList.add('answer');
     });
