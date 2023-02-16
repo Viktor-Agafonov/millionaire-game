@@ -3,12 +3,13 @@ body{
     justify-content: center;
     background-color: rgba(0, 125, 300, 0.4);
     box-shadow: inset 16px 332px 297px #0000ff;
+    margin: 0;
 }
 
 .wrapper{
     width: 60%;
-    height: 96vh;
-    background: url("Who-wants-to-be-a-millionaire-online-game.jpg") center center/100% 100vh repeat-x;
+    height: 100vh;
+    background: url("Who-wants-to-be-a-millionaire-online-game.jpg") center center/100% 100% repeat-x;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,6 +43,7 @@ body{
 .templateInfoClass{
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 .templateWinClass, .templateLoseClass, .showTakeMoney{
@@ -142,7 +144,7 @@ body{
 }
 
 .helpButtonAudienceFinish {
-    background: url("icon/fifty.png") center center/100% 100% repeat-x;
+    background: url("icon/Audience2.png") center center/100% 100% repeat-x;
 }
 
 .wrapper .topMenu .topMenuCenter .helpMenu .iconFifty{
@@ -150,7 +152,7 @@ body{
 }
 
 .helpButtonFiftyFinish {
-    background: url("icon/Phone.png") center center/100% 100% repeat-x;
+    background: url("icon/fifty2.png") center center/100% 100% repeat-x;
 }
 
 .wrapper .topMenu .topMenuCenter .helpMenu .iconPhone{
@@ -158,7 +160,7 @@ body{
 }
 
 .helpButtonPhoneFinish {
-    background: url("icon/fifty.png") center center/100% 100% repeat-x;
+    background: url("icon/Phone2.png") center center/100% 100% repeat-x;
 }
 
 .wrapper .topMenu .topMenuCenter .menu{
@@ -222,7 +224,7 @@ body{
 
 .wrapper .blockGame{
     width: 90%;
-    height: 40vh;
+    height: 40%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -234,7 +236,7 @@ body{
     background-color: blue;
     box-shadow: inset -13px 23px 34px #486aff;
     width: 80%;
-    height: 8vh;
+    height: 22%;
     border-radius: 30px 30px 30px 30px;
     border: 3px solid wheat;
     display: flex;
@@ -254,7 +256,7 @@ body{
 
 .wrapper .blockGame .answers .answer{
     width: 35%;
-    height: 6vh;
+    height: 21%;
     background-color: blue;
     box-shadow: inset -13px 23px 34px #486aff;
     border-radius: 30px 30px 30px 30px;
@@ -276,7 +278,7 @@ body{
     align-items: center;
     color: white;
     animation-direction: alternate;
-    animation-duration: 4s;
+    animation-duration: 3s;
     animation-name: moveClickAnswerStyleWin;
     animation-play-state: running;
     animation-timing-function: linear;
@@ -303,7 +305,7 @@ body{
     align-items: center;
     color: white;
     animation-direction: alternate;
-    animation-duration: 4s;
+    animation-duration: 3s;
     animation-name: moveClickAnswerStyleLose;
     animation-play-state: running;
     animation-timing-function: linear;
@@ -317,6 +319,19 @@ body{
         box-shadow: inset -13px 23px 34px #ffee5a; }
     100% { background-color: blue;
         box-shadow: inset -13px 23px 34px #486aff; }
+}
+
+.loseCorrectAnswer {
+    width: 35%;
+    height: 6vh;
+    background-color: #6dad23;
+    box-shadow: inset -13px 23px 34px #a4e954;
+    border-radius: 30px 30px 30px 30px;
+    border: 3px solid wheat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 
 .takeMoneyClass {
@@ -360,7 +375,7 @@ body{
     align-items: center;
     color: white;
     animation-direction: alternate;
-    animation-duration: 4s;
+    animation-duration: 3s;
     animation-name: moveTrWinColor;
     animation-play-state: running;
     animation-timing-function: linear;
@@ -384,7 +399,7 @@ body{
     align-items: center;
     color: white;
     animation-direction: alternate;
-    animation-duration: 4s;
+    animation-duration: 3s;
     animation-name: moveTrLoseColor;
     animation-play-state: running;
     animation-timing-function: linear;
@@ -501,4 +516,10 @@ body{
 }
 .clickHelpFiftyStyle{
     display: none;
+}
+
+@media (max-width: 480px){
+    .wrapper{
+        width: 100%;
+    }
 }

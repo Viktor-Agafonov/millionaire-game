@@ -53,12 +53,13 @@ let action;
 let clickAction;
 let actionDataset;
 let countIndex = 1;
-let indexTemplateInfoMenu = 1;
+let indexTemplateInfoMenu = 0;
 let stopFn = false;
 let trValue;
 let trArrayRevers = Array.from(trGallery);
 let trArray = trArrayRevers.reverse();
 let arrayFromAnswer;
+let loseCorrectAnswerRemove;
 
 document.querySelector('#startButton').addEventListener('click', startGame);
 document.querySelector('#continueButton').addEventListener('click', continueGame);
@@ -67,6 +68,8 @@ document.querySelector('#takeMoneyButton').addEventListener('click', takeMoneyGa
 function startGame() {
     this.removeEventListener('click', startGame);
     action = '';
+    indexTemplateInfoMenu = 0;
+    loseCorrectAnswerRemove = false;
     showQuestionsAnswersBlock(0);
     answersDiv.addEventListener('click', clickAnswers,);
     showTemplateInfoMenu();
@@ -92,10 +95,10 @@ function showQuestionsAnswersBlock (index){
     arrayFromAnswer = document.querySelectorAll('.answer')
 
     questionsDiv.textContent = questionsValue.questions;
-    document.querySelector('.firstAnswer').textContent = questionsValue.answers.answerA;
-    document.querySelector('.secondAnswer').textContent = questionsValue.answers.answerB;
-    document.querySelector('.thirdAnswer').textContent = questionsValue.answers.answerC;
-    document.querySelector('.fourthAnswer').textContent = questionsValue.answers.answerD;
+    document.querySelector('#firstAnswer').textContent = questionsValue.answers.answerA;
+    document.querySelector('#secondAnswer').textContent = questionsValue.answers.answerB;
+    document.querySelector('#thirdAnswer').textContent = questionsValue.answers.answerC;
+    document.querySelector('#fourthAnswer').textContent = questionsValue.answers.answerD;
 
 }
 
@@ -105,23 +108,25 @@ function clickAnswers(e) {
         this.stopPropagation();
         }
         stopFn = true;
+        indexTemplateInfoMenu++;
         action = e.target.textContent;
         actionDataset = e.target.dataset.action
         clickAction = e.target;
+        loseCorrectAnswerRemove = true;
         if (action === correctAnswer) {
-            clickAction.classList.remove('answer');
-            clickAction.classList.add('clickAnswerStyleWin');
-            trValue.classList.add('trWinColor')
+            clickAction.className = 'clickAnswerStyleWin';
+            trValue.classList.add('trWinColor');
+            if (action === questionsArray[14].correctAnswer){
+                showGameWinMoney();
+            }
             showTemplateWin();
         }
-        else if (action === questionsArray[14].correctAnswer){
-            showGameWinMoney();
-        }
         else if (action !== correctAnswer) {
-            clickAction.classList.remove('answer');
-            clickAction.classList.add('clickAnswerStyleLose');
+            clickAction.className = 'clickAnswerStyleLose';
             trValue.classList.add('trLoseColor');
+            setTimeout(showLoseCorrectAnswer, 3100);
             showTemplateLose();
+
         }
     }
 }
@@ -130,20 +135,27 @@ function continueGame (){
     stopFn = false;
     trValue.classList.remove('trWinColor');
     trValue.classList.remove('trLoseColor');
-    clickAction.classList.remove('clickAnswerStyleWin');
-    clickAction.classList.remove('clickAnswerStyleLose');
     trValue.classList.remove('trNormalColor');
-    clickAction.classList.add('answer');
-    removeStyleFiftyArray();
+    document.querySelectorAll('.answers div').forEach(answer => answer.className = 'answer');
     textDiv.innerHTML = '';
-    // questionText = questionsArray[indexTemplateInfoMenu].text;
-    indexTemplateInfoMenu++;
+    let countContinue = countIndex - 2;
+    if (countContinue < 0)
+        countContinue = 0;
+
     showTemplateInfoMenu();
     if (action === correctAnswer){
         showQuestionsAnswersBlock(countIndex);
         countIndex++;
+    }
+    else if (action === questionsArray[countContinue].correctAnswer){
+        let continueNewGame = confirm(`Бажаєте розпочати гру заново?`);
+        if (continueNewGame){
+            textDiv.innerHTML = '';
+            countIndex = 1;
+            startGame();
+        }
     } else {
-        let loseNewGame = confirm(`Желаете начать игру заново?`);
+        let loseNewGame = confirm(`Бажаєте розпочати гру заново?`);
         if (loseNewGame){
             textDiv.innerHTML = '';
             countIndex = 1;
@@ -151,26 +163,35 @@ function continueGame (){
         } else {
             textDiv.innerHTML = '';
             countIndex = 1;
-            alert(`Возвращайтесь! Bye!`);
             showGameOver();
         }
     }
+}
+
+function showLoseCorrectAnswer() {
+    document.querySelectorAll('.answer').forEach(answer => {
+        if (loseCorrectAnswerRemove){
+        if (answer.textContent === correctAnswer) {
+            answer.classList.remove('answer')
+            answer.classList.add('loseCorrectAnswer');
+        }
+    }
+    });
 }
 
 function takeMoneyGame() {
     if (action === correctAnswer) {
         textDiv.innerHTML = '';
         showTakeMoney();
-        correctAnswer = false;
-        indexTemplateInfoMenu = 1;
+        correctAnswer = 2;
+        indexTemplateInfoMenu = 0;
         countIndex = 1;
-        removeStyleFiftyArray();
     }
 }
 
 function showTemplateInfoMenu() {
     let templateInfoMenuClone = templateInfoMenu.content.cloneNode(true);
-    templateInfoMenuClone.querySelector('#templateInfo').textContent = questionText;
+    templateInfoMenuClone.querySelector('#templateInfo').textContent = questionsArray[indexTemplateInfoMenu].text;
     textDiv.appendChild(templateInfoMenuClone);
 }
 
@@ -275,14 +296,14 @@ function showCallFriends() {
     this.removeEventListener('click', showCallFriends);
 }
 
-function showHelpFiftyButton(){
+function showHelpFiftyButton() {
     helpButtonFiftyBackground.classList.remove('iconFifty');
     helpButtonFiftyBackground.classList.add('helpButtonFiftyFinish');
     this.removeEventListener('click', showHelpFiftyButton);
     let arrayHelpFifty = [];
     let arrayHelpFiftyStyle = [];
     givFiftyArray(arrayFromAnswer);
-    showStyleFiftyArray();
+    arrayHelpFiftyStyle.forEach(value => value.className = 'clickHelpFiftyStyle');
 
     function givFiftyArray(array) {
         for (let i = 0; i < 2; i++) {
@@ -299,19 +320,7 @@ function showHelpFiftyButton(){
             }
         }
     }
-
-    function showStyleFiftyArray() {
-        arrayHelpFiftyStyle.forEach(value => {
-            value.classList.remove('answer');
-            value.classList.add('clickHelpFiftyStyle');
-        });
-    }
 }
 
-function removeStyleFiftyArray() {
-    arrayFromAnswer.forEach(value => {
-        value.classList.remove('clickHelpFiftyStyle');
-        value.classList.add('answer');
-    });
-}
+
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Как Стать Миллионером 2.0</title>
+    <title>Як стати Мільйонером v.3.0</title>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
@@ -104,10 +104,10 @@
     <div class="blockGame">
         <div class="questions"></div>
         <div class="answers" id="deleteClickZone">
-            <div class="answer firstAnswer" data-action="firstAnswer"></div>
-            <div class="answer secondAnswer" data-action="secondAnswer"></div>
-            <div class="answer thirdAnswer" data-action="thirdAnswer"></div>
-            <div class="answer fourthAnswer" data-action="fourthAnswer"></div>
+            <div class="answer" id="firstAnswer"></div>
+            <div class="answer" id="secondAnswer"></div>
+            <div class="answer" id="thirdAnswer"></div>
+            <div class="answer"id="fourthAnswer"></div>
         </div>
     </div>
 
@@ -121,22 +121,22 @@
 
 <template id="templateWin">
     <div class="templateWinClass">
-        <p id="CorrectAnswerInfo">Правильный ответ</p>
-        <p>Ваш выигрый составляет: <span id="prizeWin"></span></p>
-        <p>Несгораемая сумма: <span id="amountFireproof"></span></p>
+        <p id="CorrectAnswerInfo">Правильна відповідь</p>
+        <p>Ваш виграш складає: <span id="prizeWin"></span></p>
+        <p>Незгорана сума: <span id="amountFireproof"></span></p>
     </div>
 </template>
 
 <template id="templateLose">
     <div class="templateLoseClass">
-        <p id="InCorrectAnswerInfo">Неправильный ответ</p>
-        <p>Ваш выигрый составляет: <span id="prizeLose"></span></p>
+        <p id="InCorrectAnswerInfo">Неправильна відповідь</p>
+        <p>Ваш виграш складає: <span id="prizeLose"></span></p>
     </div>
 </template>
 
 <template id="takeMoney">
     <div class="takeMoneyClass">
-        <p id="takeMoneyInfo"> Вы Выиграли!<br />Ваш выигрыш составляет: <span id="prizeTakeMoney"></span></p>
+        <p id="takeMoneyInfo"> Ви виграли!<br />Ваш виграш складає: <span id="prizeTakeMoney"></span></p>
     </div>
 </template>
 
