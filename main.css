@@ -685,10 +685,10 @@ body{
         height: 24%;
     }
 
-    .wrapper .timerStyle, .timerStyleYellow, .timerStyleRed{
+    .wrapper .timerStyle{
         width: 14vw;
         height: 7vh;
-        top: 70.5%;
+        top: 76.5vh;
     }
 
     .mouseoverStyle {
