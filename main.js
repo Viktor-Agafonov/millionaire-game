@@ -37,6 +37,7 @@ let textDiv = document.querySelector(".infoMenu");
 let templateNewGameAsk = document.querySelector('#templateNewGameAsk');
 let templateWin = document.querySelector('#templateWin');
 let templateLose = document.querySelector('#templateLose');
+let gameOver = document.querySelector('#gameOver');
 let templateHelpButtonAudience = document.querySelector('#templateHelpButtonAudience');
 let answersDiv = document.querySelector('.answers');
 let templateInfoMenu = document.querySelector('#templateInfoMenu');
@@ -72,24 +73,30 @@ let checkClickHelps;
 document.querySelector('#startButton').addEventListener('click', startGame);
 document.querySelector('#continueButton').addEventListener('click', continueGame);
 document.querySelector('#takeMoneyButton').addEventListener('click', takeMoneyGame);
-document.querySelectorAll('.answer').forEach(button => {
-    button.addEventListener('mouseover', function (e) {
-        if (!mouseoverMouseout)
-            e.target.style.background = '#00c8ff';
-    });
-    button.addEventListener('mouseout', function (e) {
-        e.target.style.background = '';
-    });
-});
-document.querySelectorAll('.menu').forEach(button => {
-    button.addEventListener('mouseover', function (e) {
-        e.target.style.background = '#00c8ff';
-    });
-    button.addEventListener('mouseout', function (e) {
-        e.target.style.background = '';
-    });
-});
 
+const mediaQueryMax = window.matchMedia('(max-width: 1199px)');
+function showMouseOverOutStyle(value) {
+    if (!value.matches) {
+        document.querySelectorAll('.answer').forEach(button => {
+            button.addEventListener('mouseover', function (e) {
+                if (!mouseoverMouseout)
+                    e.target.style.background = '#00c8ff';
+            });
+            button.addEventListener('mouseout', function (e) {
+                e.target.style.background = '';
+            });
+        });
+        document.querySelectorAll('.menu').forEach(button => {
+            button.addEventListener('mouseover', function (e) {
+                e.target.style.background = '#00c8ff';
+            });
+            button.addEventListener('mouseout', function (e) {
+                e.target.style.background = '';
+            });
+        });
+    }
+}
+showMouseOverOutStyle(mediaQueryMax);
 
 function startGame() {
     resetValue();
@@ -208,7 +215,7 @@ function continueGame() {
                 document.querySelector('.newGameAskDiv').remove();
                 textDiv.innerHTML = '';
                 countIndex = 1;
-                showGameOver();
+                showTimerContinueTemplateConstructor(gameOver, '#textGameOver', 'Кінець гри! <br /> Вдалого дня! <br /> Повертайтесь!', wrapper);
             });
         }
     }
@@ -234,7 +241,7 @@ function addTimer(){
                 textDiv.innerHTML = '';
                 countIndex = 1;
                 showRemoveTrValueClassList();
-                showGameOver();
+                showTimerContinueTemplateConstructor(gameOver, '#textGameOver', 'Кінець гри! <br /> Вдалого дня! <br /> Повертайтесь!', wrapper);
             });
         }, valueTimer * 1000);
     }
@@ -285,6 +292,12 @@ function showTimerContinueTemplateConstructor(templateId, textSelectorId, templa
     divAdd.appendChild(templateClone);
 }
 
+function showGameOver() {
+    let gameOverClone = gameOver.content.cloneNode(true);
+    gameOverClone.querySelector('#textGameOver').innerHTML = 'Кінець гри! <br /> Вдалого дня! <br /> Повертайтесь!';
+    wrapper.appendChild(gameOverClone);
+}
+
 function showTemplateWin() {
     let templateWinClone = templateWin.content.cloneNode(true);
     templateWinClone.querySelector('#prizeWin').textContent = prizeWin;
@@ -305,11 +318,7 @@ function takeMoneyGame() {
         countIndex = 1;
     }
 }
-function showGameOver() {
-    let gameOver = document.querySelector('#gameOver');
-    let gameOverClone = gameOver.content.cloneNode(true);
-    textDiv.appendChild(gameOverClone);
-}
+
 
 function showHelpButtonAudience() {
     if (!checkClickHelps) {
