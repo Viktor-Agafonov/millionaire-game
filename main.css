@@ -685,12 +685,6 @@ body{
         height: 24%;
     }
 
-    /*.wrapper .timerStyle, .timerStyleYellow, .timerStyleRed{*/
-    /*    width: 14vw;*/
-    /*    height: 7vh;*/
-    /*    top: 76.5%;*/
-    /*}*/
-
     .mouseoverStyle {
         background-color: blue;
     }
