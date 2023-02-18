@@ -685,7 +685,7 @@ body{
         height: 24%;
     }
 
-    .wrapper .timerStyle, .wrapper .timerStyleYellow, .wrapper .timerStyleRed{
+    .wrapper .timerStyle, .timerStyleYellow, .timerStyleRed{
         width: 14vw;
         height: 7vh;
         top: 76.5%;
