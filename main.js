@@ -64,6 +64,7 @@ let trArray = trArrayRevers.reverse();
 let arrayFromAnswer;
 let loseCorrectAnswerRemove;
 let mouseoverMouseout;
+let mouseoverMouseoutForStartMenu;
 let valueTimer = 12;
 let timerId;
 let timerLose;
@@ -86,9 +87,15 @@ function showMouseOverOutStyle(value) {
                 e.target.style.background = '';
             });
         });
-        document.querySelectorAll('.menu').forEach(button => {
+        let btnMenuArray = document.querySelectorAll('.menu');
+        btnMenuArray.forEach(button => {
             button.addEventListener('mouseover', function (e) {
+                if (!mouseoverMouseoutForStartMenu && e.target === btnMenuArray[0])
                 e.target.style.background = '#00c8ff';
+                if (mouseoverMouseout && e.target === btnMenuArray[1])
+                    e.target.style.background = '#00c8ff';
+                if (action === correctAnswer && e.target === btnMenuArray[2])
+                    e.target.style.background = '#00c8ff';
             });
             button.addEventListener('mouseout', function (e) {
                 e.target.style.background = '';
@@ -104,6 +111,8 @@ function startGame() {
     addTimer();
     this.removeEventListener('click', startGame);
     action = '';
+    mouseoverMouseoutForStartMenu = null;
+    mouseoverMouseoutForTakeMoney = null;
     indexTemplateInfoMenu = 0;
     loseCorrectAnswerRemove = false;
     showQuestionsAnswersBlock(0);
@@ -147,6 +156,7 @@ function clickAnswers(e) {
         checkClickContinue = e.target;
         checkClickHelps = true;
         mouseoverMouseout = clickAction;
+        mouseoverMouseoutForStartMenu = mouseoverMouseout;
         loseCorrectAnswerRemove = true;
         if (action === correctAnswer) {
             clickAction.className = 'clickAnswerStyleWin';
