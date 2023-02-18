@@ -662,9 +662,12 @@ body{
 }
 
 @media screen and (max-width: 1199px){
+    body{
+        height: 90vh;
+    }
     .wrapper{
         width: 100%;
-        height: 90vh;
+        height: 100%;
     }
     .mouseoverStyle {
         background-color: blue;
