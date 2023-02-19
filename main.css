@@ -665,14 +665,21 @@ body{
     color: white;
 }
 
-@media screen and (max-width: 1199px){
-    .wrapper{
+@media screen and (max-width: 1199px) {
+    .wrapper {
         width: 100%;
         height: 94vh;
     }
 
     .wrapper .blockGame {
         height: 44%;
+    }
+
+    .wrapper .blockGame .questions {
+        font-size: 52px;
+    }
+
+    .wrapper .blockGame .answers .answer {
         font-size: 38px;
     }
 
@@ -690,7 +697,7 @@ body{
         height: 24%;
     }
 
-    .wrapper .timerStyle, .timerStyleRed, .timerStyleYellow{
+    .wrapper .timerStyle, .timerStyleRed, .timerStyleYellow {
         width: 14vw;
         height: 7vh;
         top: 76.5vh;
@@ -698,7 +705,7 @@ body{
     }
 
     .wrapper .topMenu .prizeMenu .prizeTable {
-        font-size: 34px;
+        font-size: 30px;
     }
 
     .wrapper .topMenu .infoMenu {
@@ -718,8 +725,8 @@ body{
     }
 
     .wrapper .topMenu .topMenuCenter .helpMenu .helpMenuButton {
-        width: 80%;
-        height: 28%;
+        width: 74%;
+        height: 26%;
     }
 
     .wrapper .topMenu .topMenuCenter .helpMenu {
@@ -734,7 +741,7 @@ body{
         background-color: blue;
     }
 
-    .callFriends{
+    .callFriends {
         position: absolute;
         top: 48%;
         left: 20%;
@@ -749,14 +756,39 @@ body{
         height: 43%;
         opacity: 0
     }
+
     @keyframes moveCallFriends {
-        0% { opacity: 0; width: 78%; height: 27%;}
-        20% { opacity: 1; margin-left: -16%; margin-top: -71%; width: 78%; height: 27%; z-index: 1}
-        95% { opacity: 1; margin-left: -16%; margin-top: -71%; width: 78%; height: 27%;  z-index: 1}
-        100% { opacity: 0; margin-left: 0; width: 78%; height: 27%;  z-index: 1}
+        0% {
+            opacity: 0;
+            width: 78%;
+            height: 27%;
+        }
+        20% {
+            opacity: 1;
+            margin-left: -16%;
+            margin-top: -71%;
+            width: 78%;
+            height: 27%;
+            z-index: 1
+        }
+        95% {
+            opacity: 1;
+            margin-left: -16%;
+            margin-top: -71%;
+            width: 78%;
+            height: 27%;
+            z-index: 1
+        }
+        100% {
+            opacity: 0;
+            margin-left: 0;
+            width: 78%;
+            height: 27%;
+            z-index: 1
+        }
     }
 
-    .callFriends #callFriendsText{
+    .callFriends #callFriendsText {
         top: 76%;
         left: 6%;
         width: 54%;
@@ -768,8 +800,18 @@ body{
         color: black;
         font-weight: 600;
     }
-    .callFriends #callFriendsText p{
+
+    .callFriends #callFriendsText p {
         margin: 0;
     }
-}
 
+    .HelpAudienceBlock .HelpAudienceDivs .HelpAudienceDivAnswer {
+        font-size: 70px;
+        height: 18%;
+    }
+
+    .HelpAudienceBlock .HelpAudienceDivs .HelpAudienceInterest {
+        height: 10%;
+        font-size: 28px;
+    }
+}
