@@ -149,6 +149,7 @@ let mouseoverMouseoutForStartMenu;
 let valueTimer = 60;
 let timerId;
 let timerLose;
+let timerSound;
 let checkClickContinue;
 let checkClickHelps;
 
@@ -167,12 +168,10 @@ function playAudio(sound) {
     sound.play();
     sound.volume = 0.1;
 }
-
 function pauseAudio(sound) {
     sound.pause();
 
 }
-
 function stopAudio(sound) {
     sound.pause();
     sound.currentTime = 0.0;
@@ -275,7 +274,7 @@ function clickAnswers(e) {
         if (action === correctAnswer) {
             clickAction.className = 'clickAnswerStyleWin';
             trValue.classList.add('trWinColor');
-            setTimeout(() => {
+            timerSound = setTimeout(() => {
                 stopAudio(expectationSound);
                 playAudio(correctAnswerSound);
             }, 3100);
@@ -318,7 +317,9 @@ function continueGame() {
         });
     } else {
         stopAudio(correctAnswerSound);
-        playAudio(nextQuestionSound);
+        stopAudio(notCorrectAnswer);
+        clearInterval(timerSound);
+        if(action == correctAnswer) playAudio(nextQuestionSound);
         checkClickContinue = false;
         checkClickHelps = false;
         stopFn = false;
@@ -458,6 +459,7 @@ function takeMoneyGame() {
 function showHelpButtonAudience() {
     if (!checkClickHelps) {
         helpAudience.play();
+        helpAudience.volume = 0.2;
         showTemplateHelpButtonAudience()
         let arrayForAudience = [];
         givRandomArrayForAudience(arrayForAudience);
@@ -516,6 +518,7 @@ function showCallFriends() {
         helpButtonPhoneBackground.classList.add('helpButtonPhoneFinish');
         showTemplateCallFriends();
         soundCallFriends.play();
+        soundCallFriends.volume = 0.6;
         this.removeEventListener('click', showCallFriends);
     }
 }
@@ -527,6 +530,7 @@ function showTemplateCallFriends() {
 function showHelpFiftyButton() {
     if (!checkClickHelps) {
         helpFifty.play();
+        helpFifty.volume = 0.2;
         helpButtonFiftyBackground.classList.remove('iconFifty');
         helpButtonFiftyBackground.classList.add('helpButtonFiftyFinish');
         this.removeEventListener('click', showHelpFiftyButton);
