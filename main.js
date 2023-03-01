@@ -15,12 +15,12 @@ class Questions {
 
 let forRendQuestionsArray = [
     [
-        new Questions('1. Який герой мультфільму живе в ананасі під морем?', 'a) Камбала', 'b) Немо', 'c) Рік і Морті', 'd) Губка Боб Квадратні Штани' , 'Питання на 500$ за правильну відповідь', 500, 'd) Губка Боб Квадратні Штани', 0),
-        new Questions('1. Як називають дзвін годинника у Вестмінстерському палаці в Лондоні?', 'a) Біг Бен', 'b) Броненосець', 'c) Калабаш', 'd) Мумія' , 'Питання на 500$ за правильну відповідь', 500, 'a) Біг Бен', 0),
-        new Questions('1. Який перший безалкогольний напій винесли в космос?', 'a) Пепсі', 'b) Fanta', 'c) Кока-Кола', 'd) Snapple' , 'Питання на 500$ за правильну відповідь', 500, 'c) Кока-Кола', 0),
-        new Questions('1. У «Трьох поросятах» з чого зроблений найміцніший будинок?', 'a) Цегла', 'b) Палички', 'c) Солома', 'd) бамбук' , 'Питання на 500$ за правильну відповідь', 500, 'a) Цегла', 0),
-        new Questions('1. Як називаються факти, за якими ганяються журналісти?', 'a) смажені', "b) в'ялені", 'c) парені', 'd) з душком' , 'Питання на 500$ за правильну відповідь', 500, 'a) смажені', 0),
-        new Questions('1. Як називають тварин, які харчуються тільки рослинами?', 'a) Хижі', "b) Травоїдні тварини", 'c) Всеїдні тварини', 'd) Вегетаріанська' , 'Питання на 500$ за правильну відповідь', 500, 'b) Травоїдні тварини', 0),
+        new Questions('1. Який герой мультфільму живе в ананасі під морем?', 'a) Камбала', 'b) Немо', 'c) Рік і Морті', 'd) Губка Боб Квадратні Штани', 'Питання на 500$ за правильну відповідь', 500, 'd) Губка Боб Квадратні Штани', 0),
+        new Questions('1. Як називають дзвін годинника у Вестмінстерському палаці в Лондоні?', 'a) Біг Бен', 'b) Броненосець', 'c) Калабаш', 'd) Мумія', 'Питання на 500$ за правильну відповідь', 500, 'a) Біг Бен', 0),
+        new Questions('1. Який перший безалкогольний напій винесли в космос?', 'a) Пепсі', 'b) Fanta', 'c) Кока-Кола', 'd) Snapple', 'Питання на 500$ за правильну відповідь', 500, 'c) Кока-Кола', 0),
+        new Questions('1. У «Трьох поросятах» з чого зроблений найміцніший будинок?', 'a) Цегла', 'b) Палички', 'c) Солома', 'd) бамбук', 'Питання на 500$ за правильну відповідь', 500, 'a) Цегла', 0),
+        new Questions('1. Як називаються факти, за якими ганяються журналісти?', 'a) смажені', "b) в'ялені", 'c) парені', 'd) з душком', 'Питання на 500$ за правильну відповідь', 500, 'a) смажені', 0),
+        new Questions('1. Як називають тварин, які харчуються тільки рослинами?', 'a) Хижі', "b) Травоїдні тварини", 'c) Всеїдні тварини', 'd) Вегетаріанська', 'Питання на 500$ за правильну відповідь', 500, 'b) Травоїдні тварини', 0),
     ],
     [
         new Questions('2. Який баланс бухгалтер підприємства приносить до податкової інспекції?', 'a) Річний', "b) П'ятирічний", 'c) Кислотно-лужний', 'd) Багаторічний', 'Вопрос на 1000$ за правильный ответ', 1000, 'a) Річний', 0),
@@ -68,10 +68,10 @@ let forRendQuestionsArray = [
         new Questions('8. За який фільм Tom Hanks отримав свою першу номінацію на премію Оскар?', 'a) Великий', 'b) Форрест Гамп', "c) Аполлон 13", 'd) Ви отримали пошту', 'Вопрос на 13000$ за правильный ответ', 13000, 'a) Великий', 5000),
     ],
     [
-        new Questions('9. Якого роману немає у Артура Хейлі?', 'a) «Аэропорт»', 'b) «Отель»', 'c) «Больница»', 'd) «Колеса»' ,'Вопрос на 15000$ за правильный ответ', 15000, 'c) «Больница»', 5000),
-        new Questions('9. Скільки часу займає мить?', 'a) 60 секунд', 'b) 90 секунд', 'c) 120 секунд', 'd) 180 секунд' ,'Вопрос на 15000$ за правильный ответ', 15000, 'b) 90 секунд', 5000),
-        new Questions('9. Скільки триває олімпійський басейн?', 'a) 25 метрів', 'b) 50 метрів', 'c) 60 метрів', 'd) 40 метрів' ,'Вопрос на 15000$ за правильный ответ', 15000, 'b) 50 метрів', 5000),
-        new Questions('9. Скільки тривала Столітня війна?', 'a) 116 років', 'b) 100 років', 'c) 50 років', 'd) 101 рік' ,'Вопрос на 15000$ за правильный ответ', 15000, 'a) 116 років', 5000),
+        new Questions('9. Якого роману немає у Артура Хейлі?', 'a) «Аэропорт»', 'b) «Отель»', 'c) «Больница»', 'd) «Колеса»', 'Вопрос на 15000$ за правильный ответ', 15000, 'c) «Больница»', 5000),
+        new Questions('9. Скільки часу займає мить?', 'a) 60 секунд', 'b) 90 секунд', 'c) 120 секунд', 'd) 180 секунд', 'Вопрос на 15000$ за правильный ответ', 15000, 'b) 90 секунд', 5000),
+        new Questions('9. Скільки триває олімпійський басейн?', 'a) 25 метрів', 'b) 50 метрів', 'c) 60 метрів', 'd) 40 метрів', 'Вопрос на 15000$ за правильный ответ', 15000, 'b) 50 метрів', 5000),
+        new Questions('9. Скільки тривала Столітня війна?', 'a) 116 років', 'b) 100 років', 'c) 50 років', 'd) 101 рік', 'Вопрос на 15000$ за правильный ответ', 15000, 'a) 116 років', 5000),
     ],
     [
         new Questions('10. Яка національна тварина Шотландії?', 'a) Кінь', 'b) Єдиноріг', 'c) Вовк', 'd) Корова', 'Вопрос на 25000$ за правильный ответ', 25000, 'b) Єдиноріг', 5000),
@@ -79,9 +79,9 @@ let forRendQuestionsArray = [
         new Questions('10. З якої речовини зроблені нігті?', 'a) Серотонін', 'b) Епідерміс', 'c) Меланін', 'd) Кератин', 'Вопрос на 25000$ за правильный ответ', 25000, 'd) Кератин', 5000),
     ],
     [
-        new Questions('11. Якого роману немає в Артура Хейлі?', 'a) «Аеропорт»', 'b) «Готель»', 'c) «Лікарня»', 'd) «Коліса»' ,'Вопрос на 50000$ за правильный ответ', 50000, 'c) «Лікарня»', 25000),
-        new Questions('11. Яка служба електронної пошти належить Microsoft?', 'a) Outlook', 'b) Yahoo Mail', 'c) Gmail', 'd) iCloud Mail' ,'Вопрос на 50000$ за правильный ответ', 50000, 'a) Outlook', 25000),
-        new Questions('11. Скільки країн знаходиться всередині Сполученого Королівства?', 'a) Три', 'b) Чотири', "c) П'ять", 'd) Шість' ,'Вопрос на 50000$ за правильный ответ', 50000, 'b) Чотири', 25000),
+        new Questions('11. Якого роману немає в Артура Хейлі?', 'a) «Аеропорт»', 'b) «Готель»', 'c) «Лікарня»', 'd) «Коліса»', 'Вопрос на 50000$ за правильный ответ', 50000, 'c) «Лікарня»', 25000),
+        new Questions('11. Яка служба електронної пошти належить Microsoft?', 'a) Outlook', 'b) Yahoo Mail', 'c) Gmail', 'd) iCloud Mail', 'Вопрос на 50000$ за правильный ответ', 50000, 'a) Outlook', 25000),
+        new Questions('11. Скільки країн знаходиться всередині Сполученого Королівства?', 'a) Три', 'b) Чотири', "c) П'ять", 'd) Шість', 'Вопрос на 50000$ за правильный ответ', 50000, 'b) Чотири', 25000),
     ],
     [
         new Questions('12. Хто з персонажів комедії «Дель Арте» говорив ламаною італійською мовою з сильним іспанським акцентом?', 'a) Капітан', 'b) Панталоне', 'c) Лікар', 'd) Арлекін', 'Вопрос на 100000$ за правильный ответ', 100000, 'a) Капітан', 25000),
@@ -105,7 +105,7 @@ let forRendQuestionsArray = [
 ];
 let questionsArray;
 function givRandomQuestionsArray(array, bigArray) {
-    bigArray.forEach(x =>{
+    bigArray.forEach(x => {
         let rand = Math.floor(Math.random() * x.length);
         let randArray = x[rand];
         array.push(randArray);
@@ -152,6 +152,32 @@ let timerLose;
 let checkClickContinue;
 let checkClickHelps;
 
+let soundCallFriends = new Audio('sounds/vdohnovenie.mp3');
+let zvukСhasov = new Audio('sounds/zvukСhasov.mp3');
+let zvukFona = new Audio('sounds/zvukFona.mp3');
+let helpAudience = new Audio('sounds/helpAudience.mp3');
+let helpFifty = new Audio('sounds/helpFifty.mp3');
+let clickAnswerSound = new Audio('sounds/clickAnswer.mp3');
+let nextQuestionSound = new Audio('sounds/nextQuestionSound.mp3');
+let notCorrectAnswer = new Audio('sounds/notCorrectAnswer.mp3');
+let expectationSound = new Audio('sounds/expectationSound.mp3');
+let correctAnswerSound = new Audio('sounds/correctAnswerSound.mp3');
+
+function playAudio(sound) {
+    sound.play();
+    sound.volume = 0.1;
+}
+
+function pauseAudio(sound) {
+    sound.pause();
+
+}
+
+function stopAudio(sound) {
+    sound.pause();
+    sound.currentTime = 0.0;
+}
+
 document.querySelector('#startButton').addEventListener('click', startGame);
 document.querySelector('#continueButton').addEventListener('click', continueGame);
 document.querySelector('#takeMoneyButton').addEventListener('click', takeMoneyGame);
@@ -172,7 +198,7 @@ function showMouseOverOutStyle(value) {
         btnMenuArray.forEach(button => {
             button.addEventListener('mouseover', function (e) {
                 if (!mouseoverMouseoutForStartMenu && e.target === btnMenuArray[0])
-                e.target.style.background = '#00c8ff';
+                    e.target.style.background = '#00c8ff';
                 if (mouseoverMouseout && e.target === btnMenuArray[1])
                     e.target.style.background = '#00c8ff';
                 if (action === correctAnswer && e.target === btnMenuArray[2])
@@ -187,6 +213,8 @@ function showMouseOverOutStyle(value) {
 showMouseOverOutStyle(mediaQueryMax);
 
 function startGame() {
+    stopAudio(zvukСhasov);
+    stopAudio(zvukFona);
     questionsArray = [];
     givRandomQuestionsArray(questionsArray, forRendQuestionsArray);
     resetValue();
@@ -229,6 +257,10 @@ function clickAnswers(e) {
         if (e.target === this) {
             this.stopPropagation();
         }
+        stopAudio(zvukСhasov);
+        stopAudio(zvukFona);
+        playAudio(clickAnswerSound);
+        playAudio(expectationSound);
         givClearInterval();
         stopFn = true;
         indexTemplateInfoMenu++;
@@ -243,6 +275,10 @@ function clickAnswers(e) {
         if (action === correctAnswer) {
             clickAction.className = 'clickAnswerStyleWin';
             trValue.classList.add('trWinColor');
+            setTimeout(() => {
+                stopAudio(expectationSound);
+                playAudio(correctAnswerSound);
+            }, 3100);
             if (action === questionsArray[14].correctAnswer) {
                 showGameWinMoney();
             }
@@ -261,6 +297,8 @@ function clickAnswers(e) {
 
 function continueGame() {
     if (checkClickContinue === false) {
+        pauseAudio(zvukСhasov);
+        pauseAudio(zvukFona);
         valueTimer = document.querySelector('#timer').textContent;
         givClearInterval();
         showTimerContinueTemplateConstructor(templateNewGameAsk, '#textTemplateNewGameAsk', 'Yes - розпочати заново! <br /> NO - Продовжити!', wrapper);
@@ -279,6 +317,8 @@ function continueGame() {
             addTimer();
         });
     } else {
+        stopAudio(correctAnswerSound);
+        playAudio(nextQuestionSound);
         checkClickContinue = false;
         checkClickHelps = false;
         stopFn = false;
@@ -313,7 +353,7 @@ function continueGame() {
     }
 }
 
-function addTimer(){
+function addTimer() {
     if (!timerId) {
         timerId = setInterval(tick, 1000);
         timerLose = setTimeout(function () {
@@ -344,17 +384,24 @@ function tick() {
     valueTimer--;
     if (valueTimer < 0)
         valueTimer = 0;
-    else if (valueTimer < 10)
+    else if (valueTimer < 10) {
         timer.className = 'timerStyleRed';
-    else if (valueTimer < 30)
+        if (zvukСhasov.pause) playAudio(zvukСhasov);
+    }
+    else if (valueTimer < 30) {
         timer.className = 'timerStyleYellow';
-    else if (valueTimer > 30)
+        stopAudio(zvukFona);
+        playAudio(zvukСhasov);
+    }
+    else if (valueTimer > 30) {
         timer.className = 'timerStyle';
+        playAudio(zvukFona);
+    }
 }
 function resetValue() {
     valueTimer = 60;
 }
-function givClearInterval(){
+function givClearInterval() {
     if (timerId) {
         clearInterval(timerId);
         clearInterval(timerLose);
@@ -368,6 +415,8 @@ function showLoseCorrectAnswer() {
             if (answer.textContent === correctAnswer) {
                 answer.classList.remove('answer')
                 answer.classList.add('loseCorrectAnswer');
+                stopAudio(expectationSound);
+                playAudio(notCorrectAnswer);
             }
         }
     });
@@ -408,6 +457,7 @@ function takeMoneyGame() {
 
 function showHelpButtonAudience() {
     if (!checkClickHelps) {
+        helpAudience.play();
         showTemplateHelpButtonAudience()
         let arrayForAudience = [];
         givRandomArrayForAudience(arrayForAudience);
@@ -465,6 +515,7 @@ function showCallFriends() {
         helpButtonPhoneBackground.classList.remove('iconPhone');
         helpButtonPhoneBackground.classList.add('helpButtonPhoneFinish');
         showTemplateCallFriends();
+        soundCallFriends.play();
         this.removeEventListener('click', showCallFriends);
     }
 }
@@ -475,6 +526,7 @@ function showTemplateCallFriends() {
 }
 function showHelpFiftyButton() {
     if (!checkClickHelps) {
+        helpFifty.play();
         helpButtonFiftyBackground.classList.remove('iconFifty');
         helpButtonFiftyBackground.classList.add('helpButtonFiftyFinish');
         this.removeEventListener('click', showHelpFiftyButton);
